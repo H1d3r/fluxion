@@ -183,11 +183,6 @@ function exitmode {
         if [ "$WIFI" != "" ]; then
             echo -e ""$weis"["$rot"-"$weis"] "$weis"$general_exitmode_2 "$green"$WIFI"$transparent""
             ./airmon stop $WIFI &> $flux_output_device
-            ./airmon stop $WIFI_MONITOR1 &> $flux_output_device
-            ./airmon stop $WIFI_MONITOR2 &> $flux_output_device
-            ./airmon stop $WIFI_MONITOR3 &> $flux_output_device
-            ./airmon stop $WIFI_MONITOR4 &> $flux_output_device
-            ./airmon stop $WIFI_MONITOR5 &> $flux_output_device
             macchanger -p $WIFI &> $flux_output_device
         fi
 
@@ -216,23 +211,23 @@ function exitmode {
             rm -R $DUMP_PATH/* &>$flux_output_device
         fi
 
-	if [ $KEEP_NETWORK = 0 ]; then
+		if [ $KEEP_NETWORK = 0 ]; then
 
-        echo -e ""$white"["$red"-"$white"] "$white"$general_exitmode_6"$transparent""
-        # systemctl check
-        systemd=`whereis systemctl`
-        if [ "$systemd" = "" ];then
-            service network-manager restart &> $flux_output_device &
-	    service networkmanager restart &> $flux_output_device &
-            service networking restart &> $flux_output_device &
-        else
-            systemctl restart NetworkManager &> $flux_output_device & 	
-        fi 
-        echo -e ""$white"["$green"+"$white"] "$green"$general_exitmode_7"$transparent""
-        echo -e ""$white"["$green"+"$white"] "$grey"$general_exitmode_8"$transparent""
-        sleep 2
-        clear
-    	fi
+	        echo -e ""$white"["$red"-"$white"] "$white"$general_exitmode_6"$transparent""
+	        # systemctl check
+	        systemd=`whereis systemctl`
+	        if [ "$systemd" = "" ];then
+	            service network-manager restart &> $flux_output_device &
+		    service networkmanager restart &> $flux_output_device &
+	            service networking restart &> $flux_output_device &
+	        else
+	            systemctl restart NetworkManager &> $flux_output_device & 	
+	        fi 
+	        echo -e ""$white"["$green"+"$white"] "$green"$general_exitmode_7"$transparent""
+	        echo -e ""$white"["$green"+"$white"] "$grey"$general_exitmode_8"$transparent""
+	        sleep 2
+	        clear
+	    fi
 
 	fi
 
