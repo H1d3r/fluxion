@@ -37,7 +37,7 @@ Fluxion gets weekly updates with new features, improvements and bugfixes.
 Be sure to check out the [changelog here] (https://github.com/deltaxflux/fluxion).
 
 ## :octocat: How to contribute
-All contributions are welcome! Code, documentation, graphics or even design suggestions are welcome; use GitHub to its fullest. Submit pull requests, contribute tutorials or other wiki content -- whatever you have to offer, it would be appreciated!
+All contributions are welcome! Code, documentation, graphics or even design suggestions are welcome; use GitHub to its fullest. Submit pull requests, contribute tutorials or other wiki content -- whatever you have to offer, it would be appreciated! Please follow the instructions [here](https://github.com/deltaxflux/fluxion/blob/master/.github/CONTRIBUTING.md)
 
 ## :trident: Support us!
 Fluxion wasn't created for monetary gains. If you want to support us in a financial way, you're more than welcome to do so through the provided Bitcoin address: 1EL4asZh5bsdtt7ECwLQmypeyC2e1TqvmW
