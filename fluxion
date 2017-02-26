@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=134
+revision=135
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -88,7 +88,7 @@ function conditional_clear() {
 }
 
 function airmon {
-	chmod +x airmon
+	chmod +x lib/lib/airmon/airmon
 }
 airmon
 
