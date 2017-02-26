@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=132
+revision=133
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -218,7 +218,7 @@ function exitmode {
 	        systemd=`whereis systemctl`
 	        if [ "$systemd" = "" ];then
 	            service network-manager restart &> $flux_output_device &
-		    service networkmanager restart &> $flux_output_device &
+		  		service networkmanager restart &> $flux_output_device &
 	            service networking restart &> $flux_output_device &
 	        else
 	            systemctl restart NetworkManager &> $flux_output_device & 	
@@ -1072,8 +1072,7 @@ function askAP {
 			echo "                                       "
 			echo -e "      "$red"["$yellow"1"$red"]"$grey" $askAP_option_1"
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $askAP_option_2"
-			echo -e "      "$red"["$yellow"3"$red"]"$transparent" $askAP_option_4"
-			echo -e "      "$red"["$yellow"4"$red"]"$red" $general_back" $transparent
+			echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
 			echo "                                       "
 			echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
 			read yn
