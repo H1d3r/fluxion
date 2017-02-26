@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=127
+revision=128
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -253,7 +253,7 @@ source $WORK_DIR/sites/neutra/it
 source $WORK_DIR/sites/neutra/fr
 
 #POR
-source $WORK_DIR/sites/neutra/porni
+source $WORK_DIR/sites/neutra/por
 
 #RUS
 source $WORK_DIR/sites/neutra/rus
@@ -283,7 +283,7 @@ source $WORK_DIR/sites/neutra/cz
 source $WORK_DIR/sites/neutra/no
 
 #BG
-source $WORK_DIR/sites/neutra/bo
+source $WORK_DIR/sites/neutra/bg
 
 #SRB 
 source $WORK_DIR/sites/neutra/srb
