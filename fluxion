@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=131
+revision=132
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -738,7 +738,7 @@ else
 
 		echo -e ""$red"["$yellow"i"$red"]"$transparent" Select your language"
 		echo "                                       "
-		echo -e "      "$red"["$yellow"1"$red"]"$transparent" English          "
+		echo -e "      "$red"["$yellow"1"$red"]"$grey" English          " 
 		echo -e "      "$red"["$yellow"2"$red"]"$transparent" German      "
 		echo -e "      "$red"["$yellow"3"$red"]"$transparent" Romanian     "
 		echo -e "      "$red"["$yellow"4"$red"]"$transparent" Turkish    "
@@ -891,7 +891,7 @@ function choosescan {
 
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_choosescan"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" $choosescan_option_1          "
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" $choosescan_option_1          "
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $choosescan_option_2       "
 			echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back       " $transparent
 			echo "                                       "
@@ -1070,10 +1070,10 @@ function askAP {
 
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_askAP"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" $askAP_option_1"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" $askAP_option_1"
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $askAP_option_2"
 			echo -e "      "$red"["$yellow"3"$red"]"$transparent" $askAP_option_4"
-			echo -e "      "$red"["$yellow"4"$red"]"$red" $general_back" $transparent""
+			echo -e "      "$red"["$yellow"4"$red"]"$red" $general_back" $transparent
 			echo "                                       "
 			echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
 			read yn
@@ -1081,9 +1081,7 @@ function askAP {
 			case $yn in
 				1 ) fakeapmode="hostapd"; authmode="handshake"; handshakelocation; break ;;
 				2 ) fakeapmode="airbase-ng"; askauth; break ;;
-				3 ) fakeapmode="WPS-SLAUGHTER"; wps; break ;;
-				4 ) fakeapmode="Aircrack-ng"; Bruteforce; break;;
-				5 ) selection; break ;;
+				3 ) selection; break ;;
 				* ) echo "$general_case_error"; conditional_clear ;;
 			esac
 		done
@@ -1103,9 +1101,9 @@ function askauth {
 
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_askauth"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" $askauth_option_1"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" $askauth_option_1"
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $askauth_option_2"
-			echo -e "      "$red"["$yellow"3"$red"]"$transparent" $general_back"
+			echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
 			echo "                                       "
 			echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
 			read yn
@@ -1144,10 +1142,8 @@ function handshakelocation {
 		echo -e "handshake location  (Example: $red$WORK_DIR.cap$transparent)"
 		echo -e "Press ${yellow}ENTER$transparent to skip"
 		echo
-		echo -n "Path: "
-		echo -ne "$red"
-		echo -ne "$transparent"
-	
+		echo -ne "Path: " 
+
 		if [ "$FLUX_AUTO" = "0" ];then 
 			read handshakeloc
 		fi 
@@ -1232,9 +1228,9 @@ function deauthforce {
 
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_deauthforce"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" $deauthforce_option_1"
-			echo -e "      "$red"["$yellow"2"$red"]"$transparent" pyrit"
-			echo -e "      "$red"["$yellow"3"$red"]"$transparent" $general_back"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" pyrit" $transparent
+			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $deauthforce_option_1"
+			echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
 			echo "                                       "
 			echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
 			read yn
@@ -1272,7 +1268,7 @@ function askclientsel {
 
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_deauthMENU"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" Deauth all"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" Deauth all"$transparent
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" Deauth all [mdk3]"
 			echo -e "      "$red"["$yellow"3"$red"]"$transparent" Deauth target "
 			echo -e "      "$red"["$yellow"4"$red"]"$transparent" Rescan networks "
@@ -1359,8 +1355,8 @@ function deauthMENU {
 			echo
 			echo -e "Status handshake: $Handshake_statuscheck"
 			echo
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" $deauthMENU_option_1"
-			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $general_back (Select another deauth method)"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" $deauthMENU_option_1"
+			echo -e "      "$red"["$yellow"2"$red"]"$transparent" $general_back "		
 			echo -e "      "$red"["$yellow"3"$red"]"$transparent" Select another network"
 			echo -e "      "$red"["$yellow"4"$red"]"$transparent" Exit"
 			echo -n '      #> '
@@ -1450,7 +1446,7 @@ function certssl {
 			echo "                                       "
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" Certificate invalid or not present, please choose an option"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" Create a SSL certificate"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" Create a SSL certificate"
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" Search for SSL certificate" # hop to certssl check again
 			echo -e "      "$red"["$yellow"3"$red"]"$red" Exit" $transparent
 			echo " "
@@ -1476,7 +1472,7 @@ function certssl {
 			echo "                                    	                            "
 			echo "  Certificate invalid or not present, please choice"
 			echo "                                       "
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" Create  a SSL certificate"
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" Create  a SSL certificate"
 			echo -e "      "$red"["$yellow"2"$red"]"$transparent" Search for SSl certificate" # hop to certssl check again
 			echo -e "      "$red"["$yellow"3"$red"]"$red" Exit" $transparent
 			echo " "
@@ -1521,16 +1517,14 @@ function webinterface {
 			echo
 			echo -e ""$red"["$yellow"i"$red"]"$transparent" $header_webinterface"
 			echo
-			echo -e "      "$red"["$yellow"1"$red"]"$transparent" Web Interface"
-			echo -e "      "$red"["$yellow"2"$red"]"$transparent" Bruteforce"
-			echo -e "      "$red"["$yellow"3"$red"]"$transparent" \e[1;31mExit"$transparent""
+			echo -e "      "$red"["$yellow"1"$red"]"$grey" Web Interface"
+			echo -e "      "$red"["$yellow"2"$red"]"$transparent" \e[1;31mExit"$transparent""
 			echo
 			echo -n "#? "
 			read yn
 			case $yn in
 			1 ) matartodo; ConnectionRESET; selection; break;;
-			2 ) matartodo; Bruteforce2; break;;
-			3 ) matartodo; exitmode; break;;
+			2 ) matartodo; exitmode; break;;
 			esac
 		done
 	fi 
