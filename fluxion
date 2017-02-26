@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=135
+revision=136
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -308,6 +308,9 @@ source $WORK_DIR/sites/neutra/he
 
 #Portuguese 
 source $WORK_DIR/sites/neutra/por
+
+# SVN
+source $WORK_DIR/sites/neutra/svn
 
 # Design
 function top(){
@@ -747,8 +750,9 @@ else
 		echo -e "      "$red"["$yellow"7"$red"]"$transparent" Italian   "
 		echo -e "      "$red"["$yellow"8"$red"]"$transparent" Czech   "
 		echo -e "      "$red"["$yellow"9"$red"]"$transparent" Greek   "
-        echo -e "      "$red"["$yellow"10"$red"]"$transparent" French     "        
-		echo "                                       "
+        echo -e "      "$red"["$yellow"10"$red"]"$transparent" French     "  
+        echo -e "      "$red"["$yellow"11"$red"]"$transparent" Slovenian "  
+        echo "                                       "
 		echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
 		read yn
 		echo ""
@@ -763,6 +767,7 @@ else
 			8 ) source $WORK_DIR/language/cz   break;;
 			9 ) source $WORK_DIR/language/gr;  break;;
             10 ) source $WORK_DIR/language/fr; break;;
+            11 ) source $WORK_DIR/language/svn; break;;
 			* ) echo "Unknown option. Please choose again"; conditional_clear ;;
 		  esac
 	done
@@ -1567,7 +1572,8 @@ function ConnectionRESET {
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Danish      [DAN]  (NEUTRA)";n=`expr $n + 1`
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Hebrew      [HE]   (NEUTRA)";n=`expr $n + 1`
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Thai        [TH]   (NEUTRA)";n=`expr $n + 1`
-            echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Portuguese         (NEUTRA)";n=`expr $n + 1`
+            echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Portuguese  [BR]   (NEUTRA)";n=`expr $n + 1`
+            echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Slovenian   [SVN]  (NEUTRA)";n=`expr $n + 1`
             echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Belkin      [ENG]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Netgear     [ENG]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Huawei      [ENG]";n=`expr $n + 1`
@@ -1811,7 +1817,7 @@ function ConnectionRESET {
                                 NEUTRA
                                 break
 				
-              		elif [ "$webconf" = "17" ]; then
+            elif [ "$webconf" = "17" ]; then
                                 DIALOG_WEB_ERROR=$DIALOG_WEB_ERROR_SRB
                                 DIALOG_WEB_INFO=$DIALOG_WEB_INFO_SRB
                                 DIALOG_WEB_INPUT=$DIALOG_WEB_INPUT_SRB
@@ -1923,64 +1929,78 @@ function ConnectionRESET {
                                 NEUTRA
                                 break
 
-			elif [ "$webconf" = "25" ]; then
+            elif [ "$webconf" = 25 ]; then
+                                DIALOG_WEB_ERROR=$DIALOG_WEB_ERROR_PT_SVN
+                                DIALOG_WEB_INFO=$DIALOG_WEB_INFO_PT_SVN
+                                DIALOG_WEB_INPUT=$DIALOG_WEB_INPUT_PT_SVN
+                                DIALOG_WEB_OK=$DIALOG_WEB_OK_PT_SVN
+                                DIALOG_WEB_SUBMIT=$DIALOG_WEB_SUBMIT_
+                                DIALOG_WEB_BACK=$DIALOG_WEB_BACK_
+                                DIALOG_WEB_ERROR_MSG=$DIALOG_WEB_ERROR_MSG_
+                                DIALOG_WEB_LENGTH_MIN=$DIALOG_WEB_LENGTH_MIN_PT_SVN
+                                DIALOG_WEB_LENGTH_MAX=$DIALOG_WEB_LENGTH_MAX_PT_SVN
+                                DIALOG_WEB_DIR=$DIALOG_WEB_DIR_PT_SVN
+                                NEUTRA
+                                SVNeak
+
+			elif [ "$webconf" = "26" ]; then
 				BELKIN
 				break
 
 
-			elif [ "$webconf" = "26" ]; then
+			elif [ "$webconf" = "27" ]; then
 				NETGEAR
 				break
 
-			elif [ "$webconf" = "27" ]; then
+			elif [ "$webconf" = "28" ]; then
 				HUAWEI
 				break
 
-			elif [ "$webconf" = "28" ]; then
+			elif [ "$webconf" = "29" ]; then
 				VERIZON
 				break
 
-			elif [ "$webconf" = "29" ]; then
+			elif [ "$webconf" = "30" ]; then
 				NETGEAR2
 				break
 
-			elif [ "$webconf" = "30" ]; then
+			elif [ "$webconf" = "31" ]; then
 				ARRIS2
 				break
 
-			elif [ "$webconf" = "31" ]; then
+			elif [ "$webconf" = "32" ]; then
 				VODAFONE
 				break
 
-			elif [ "$webconf" = "32" ]; then
+			elif [ "$webconf" = "33" ]; then
 				TPLINK
 				break
 
-			elif [ "$webconf" = "33" ]; then
+			elif [ "$webconf" = "34" ]; then
 				ZIGGO_NL
 				break
 
-			elif [ "$webconf" = "34" ]; then
+			elif [ "$webconf" = "35" ]; then
 				KPN_NL
 				break
 
-            elif [ "$webconf" = "35" ]; then
+            elif [ "$webconf" = "36" ]; then
                 ZIGGO2016_NL
                 break
 
-      		elif [ "$webconf" = "36" ]; then
+      		elif [ "$webconf" = "37" ]; then
 				FRITZBOX_DE
 				break
 
-		    elif [ "$webconf" = "37" ]; then
+		    elif [ "$webconf" = "38" ]; then
 				FRITZBOX_ENG
 				break
 
-			elif [ "$webconf" = "38" ]; then
+			elif [ "$webconf" = "39" ]; then
 				GENEXIS_DE
 				break
 
-			elif [ "$webconf" = "39" ]; then
+			elif [ "$webconf" = "40" ]; then
 				conditional_clear
 				webinterface
 				break
