@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=128
+revision=129
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -598,8 +598,14 @@ if [ $FLUX_DEBUG != 1 ]; then
 				echo -ne "$transparent"
                 doupdate=${doupdate:-"Y"}
 				if [ "$doupdate" = "Y" ]; then
+
+					if [ -d .git ]; then
+						git pull --force
+					fi 
+
 					cp $0 $HOME/flux_rev-$revision.backup
 					curl "https://raw.githubusercontent.com/deltaxflux/fluxion/master/fluxion" -s -o $0
+
 					echo
 					echo
 					echo -e ""$red"
