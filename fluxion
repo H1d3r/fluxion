@@ -1574,7 +1574,7 @@ function ConnectionRESET {
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Danish      [DAN]  (NEUTRA)";n=`expr $n + 1`
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Hebrew      [HE]   (NEUTRA)";n=`expr $n + 1`
       		echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Thai        [TH]   (NEUTRA)";n=`expr $n + 1`
-            echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Portuguese - Brazilian (NEUTRA)";n=`expr $n + 1`
+            echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Portuguese         (NEUTRA)";n=`expr $n + 1`
             echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Belkin      [ENG]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Netgear     [ENG]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Huawei      [ENG]";n=`expr $n + 1`
@@ -1583,7 +1583,6 @@ function ConnectionRESET {
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Arris       [ESP]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Vodafone    [ESP]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" TP-Link     [ENG]";n=`expr $n + 1`
-			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" TP-Link     [ITA]";n=`expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Ziggo       [NL]";n=` expr $n + 1`
 			echo -e "      "$red"["$yellow"$n"$red"]"$transparent" KPN         [NL]";n=` expr $n + 1`
             echo -e "      "$red"["$yellow"$n"$red"]"$transparent" Ziggo2016   [NL]";n=` expr $n + 1`
@@ -1965,34 +1964,30 @@ function ConnectionRESET {
 				break
 
 			elif [ "$webconf" = "33" ]; then
-				TPLINK_ITA
-				break
-
-			elif [ "$webconf" = "34" ]; then
 				ZIGGO_NL
 				break
 
-			elif [ "$webconf" = "35" ]; then
+			elif [ "$webconf" = "34" ]; then
 				KPN_NL
 				break
 
-            elif [ "$webconf" = "36" ]; then
+            elif [ "$webconf" = "35" ]; then
                 ZIGGO2016_NL
                 break
 
-      		elif [ "$webconf" = "37" ]; then
+      		elif [ "$webconf" = "36" ]; then
 				FRITZBOX_DE
 				break
 
-		    elif [ "$webconf" = "38" ]; then
+		    elif [ "$webconf" = "37" ]; then
 				FRITZBOX_ENG
 				break
 
-			elif [ "$webconf" = "39" ]; then
+			elif [ "$webconf" = "38" ]; then
 				GENEXIS_DE
 				break
 
-			elif [ "$webconf" = "40" ]; then
+			elif [ "$webconf" = "39" ]; then
 				conditional_clear
 				webinterface
 				break
@@ -2624,89 +2619,77 @@ function ARRIS {
 
 function BELKIN {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/BELKIN-ENG/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/belkin_eng/* $DUMP_PATH/data
 	
 }
 
 function NETGEAR {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/NETGEAR-ENG/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/netgear_eng/* $DUMP_PATH/data
 	
 }
 
 function ARRIS2 {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/ARRIS-ESP/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/arris_esp/* $DUMP_PATH/data
 
 }
 function NETGEAR2 {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/NETGEAR-ESP/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/netgear_esp/* $DUMP_PATH/data
 	
 }
 
 function TPLINK {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-    cp -r  $WORK_DIR/sites/Upgrade-TP-LINK/* $DUMP_PATH/data
-}
-
-function TPLINK_ITA {
-mkdir $DUMP_PATH/data &>$flux_output_device
-    cp -r  $WORK_DIR/sites/Upgrade-TP-LINK_ITA/* $DUMP_PATH/data
-       
+    cp -r  $WORK_DIR/sites/tplink/* $DUMP_PATH/data
 }
 
 function VODAFONE {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/VODAFONE-ESP/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/vodafone_esp/* $DUMP_PATH/data
 }
 
 function VERIZON {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r $WORK_DIR/sites/Login-Verizon/Verizon_files $DUMP_PATH/data
-	cp $WORK_DIR/sites/Login-Verizon/Verizon.html $DUMP_PATH/data
-}
-
-function XFINITY {
-	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r $WORK_DIR/sites/Login-Xfinity/Xfinity_files $DUMP_PATH/data
-	cp $WORK_DIR/sites/Login-Xfinity/Xfinity.html $DUMP_PATH/data
+	cp -r $WORK_DIR/sites/verizon/Verizon_files $DUMP_PATH/data
+	cp $WORK_DIR/sites/verizon/Verizon.html $DUMP_PATH/data
 }
 
 function HUAWEI {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r $WORK_DIR/sites/HUAWEI-ENG/* $DUMP_PATH/data
+	cp -r $WORK_DIR/sites/huawei_eng/* $DUMP_PATH/data
 	
 	}
 
 function ZIGGO_NL {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/ZIGGO_NL/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/ziggo_nl/* $DUMP_PATH/data
 	}
 
 function KPN_NL {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/KPN_NL/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/kpn_nl/* $DUMP_PATH/data
 	}
 
 function ZIGGO2016_NL {
     mkdir $DUMP_PATH/data &>$flux_output_device
-    cp -r  $WORK_DIR/sites/ZIGGO2016_NL/* $DUMP_PATH/data
+    cp -r  $WORK_DIR/sites/ziggo2_nl/* $DUMP_PATH/data
 }
 
 function FRITZBOX_DE {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/FRITZBOX_DE/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/fritzbox_de/* $DUMP_PATH/data
 	}
 
 function FRITZBOX_ENG {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/FRITZBOX_ENG/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/fritzbox_eng/* $DUMP_PATH/data
 	}
 
 function GENEXIS_DE {
 	mkdir $DUMP_PATH/data &>$flux_output_device
-	cp -r  $WORK_DIR/sites/GENEXIS_DE/* $DUMP_PATH/data
+	cp -r  $WORK_DIR/sites/genenix_de/* $DUMP_PATH/data
 	}
 
 ######################################### < INTERFACE WEB > ########################################
