@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=130
+revision=131
 version=0.25
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -176,13 +176,13 @@ function exitmode {
 
         if [ "$WIFI_MONITOR" != "" ]; then
             echo -e ""$weis"["$rot"-"$weis"] "$weis"$general_exitmode_1 "$green"$WIFI_MONITOR"$transparent""
-            ./airmon stop $WIFI_MONITOR &> $flux_output_device
+            ./lib/airmon/airmon    stop $WIFI_MONITOR &> $flux_output_device
         fi
 
 
         if [ "$WIFI" != "" ]; then
             echo -e ""$weis"["$rot"-"$weis"] "$weis"$general_exitmode_2 "$green"$WIFI"$transparent""
-            ./airmon stop $WIFI &> $flux_output_device
+            ./lib/airmon/airmon    stop $WIFI &> $flux_output_device
             macchanger -p $WIFI &> $flux_output_device
         fi
 
@@ -787,8 +787,8 @@ function setinterface {
 	done
 
 	# Create a variable with the list of physical network interfaces
-	readarray -t wirelessifaces < <(./airmon |grep "-" | cut -d- -f1)
-	INTERFACESNUMBER=`./airmon| grep -c "-"`
+	readarray -t wirelessifaces < <(./lib/airmon/airmon    |grep "-" | cut -d- -f1)
+	INTERFACESNUMBER=`./lib/airmon/airmon   | grep -c "-"`
 
 
 	if [ "$INTERFACESNUMBER" -gt "0" ]; then
@@ -824,8 +824,8 @@ function setinterface {
 			setinterface
 		fi
 
-		readarray -t naggysoftware < <(./airmon check $PREWIFI | tail -n +8 | grep -v "on interface" | awk '{ print $2 }')
-		WIFIDRIVER=$(./airmon | grep "$PREWIFI" | awk '{print($(NF-2))}')
+		readarray -t naggysoftware < <(./lib/airmon/airmon    check $PREWIFI | tail -n +8 | grep -v "on interface" | awk '{ print $2 }')
+		WIFIDRIVER=$(./lib/airmon/airmon    | grep "$PREWIFI" | awk '{print($(NF-2))}')
 
 		if [ ! "$(echo $WIFIDRIVER | egrep 'rt2800|rt73')" ]; then
 		rmmod -f "$WIFIDRIVER" &>$flux_output_device 2>&1
@@ -850,7 +850,7 @@ function setinterface {
 			break;
 		done
 
-		WIFIMONITOR=$(./airmon start $PREWIFI | grep "enabled on" | cut -d " " -f 5 | cut -d ")" -f 1)
+		WIFIMONITOR=$(./lib/airmon/airmon    start $PREWIFI | grep "enabled on" | cut -d " " -f 5 | cut -d ")" -f 1)
 		WIFI_MONITOR=$WIFIMONITOR
 		WIFI=$PREWIFI
 
