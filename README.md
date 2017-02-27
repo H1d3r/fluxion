@@ -3,7 +3,11 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deltaxflux/Lobby)  
 Fluxion is a remake of linset by vk496 with (hopefully) less bugs and more functionality. It's compatible with the latest release of Kali (rolling). If you're new, or just don't understand much about the project, have a look at the [wiki] (https://github.com/deltaxflux/fluxion/wiki/Tutorial). The attack is mostly manual, but experimental versions will automatically handle most functionality from the stable releases.
 
+## Create a deb file
+This would be a pleasure for me, if someone can create a deb file.
+
 ## :trident: Know things
+
 #### "Clients are not automatically connected to the fake access point"
 This is a social engineering attack and it's pointless to drag clients in automatically. The script relies on the fact that a user should be present in order to enter the wireless credentials.
 
@@ -23,7 +27,7 @@ This is how the script works. The fake captive portal is set up by the script it
 The MAC address of the fake access point differs by one octet from the original in order to prevent fluxion deauthenticating clients from itself during the session. 
 
 ## Installation
-wget https://raw.githubusercontent.com/deltaxflux/fluxion/master/install/install.sh | bash
+``` wget https://raw.githubusercontent.com/deltaxflux/fluxion/master/install/install.sh |&& bash install.sh ```
 
 ## Updates
 If you want to submit a feature, do so by labeling your issue as an "enhancement" or submit a PR. I don't have enough time to make daily changes to fluxion, sorry.
